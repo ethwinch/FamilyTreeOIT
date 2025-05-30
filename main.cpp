@@ -12,6 +12,8 @@ int main(){
     Person eliana("Eliana", "P", "Garcia", "Garcia", 4, 2, 2015, 0, 0, 0);
     Person elija("Elija", "P", "Parker", "Parker", 4, 2, 2015, 0, 0, 0);
     Person fabio("Fabio", "Emett", "Parker", "Parker", 4, 2, 2015, 0, 0, 0);
+    Person layla("Layla", "Marie", "Parker", "Parker", 4, 2, 2015, 0, 0, 0);
+    Person alicia("Alicia", "Darkin", "Parker", "Gale", 4, 2, 2015, 0, 0, 0);
     Person ben("Ben", "James", "Parker", "Parker", 10, 10, 1934, 4, 5, 2016);
     Person wade("Wade", "W", "Wilson", "Wilson", 6, 10, 2001, 0, 0, 0);
     Person logan("Logan", "X", "Dude", "Dude", 6, 10, 2001, 0, 0, 0);
@@ -33,7 +35,7 @@ int main(){
     wade.addChild(&eliana);
     wade.addPartner(&logan);
 
-    wade.printPartners(wade); // Need to make it so if person1 adds person2 as a partner, the person2 auto sets person1 as their partner 
+    //wade.printPartners(wade); 
 
     may.addChild(&peter);
     may.addChild(&andrew);
@@ -41,10 +43,11 @@ int main(){
 
     ben.addChild(&peter);
     ben.addChild(&andrew);
-    ben.addPartner(&may);
 
-    eliana.addChild(&fabio); // if Rose has a child, it's fine since she is connected to the "main branch" aka Peter. 
-                             // if Peter's partner's child have a child, it won't be printed.
+    eliana.addChild(&fabio); 
+
+    fabio.addChild(&layla); // wont print child of partner's child
+    layla.addPartner(&alicia);
     
 
     //peter.printPersonInfo(peter);
