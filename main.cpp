@@ -12,9 +12,13 @@ int main(){
     Person eliana("Eliana", "P", "Garcia", "Garcia", 4, 2, 2015, 0, 0, 0);
     Person elija("Elija", "P", "Parker", "Parker", 4, 2, 2015, 0, 0, 0);
     Person fabio("Fabio", "Emett", "Parker", "Parker", 4, 2, 2015, 0, 0, 0);
+    Person layla("Layla", "Marie", "Parker", "Parker", 4, 2, 2015, 0, 0, 0);
+    Person alicia("Alicia", "Darkin", "Parker", "Gale", 4, 2, 2015, 0, 0, 0);
     Person ben("Ben", "James", "Parker", "Parker", 10, 10, 1934, 4, 5, 2016);
     Person wade("Wade", "W", "Wilson", "Wilson", 6, 10, 2001, 0, 0, 0);
     Person logan("Logan", "X", "Dude", "Dude", 6, 10, 2001, 0, 0, 0);
+
+    Person anne("Anne", "x", "Parker", "Parker", 6, 10, 2001, 0, 0, 0);
 
     //Person peter("Peter");
     //Person may("May");
@@ -24,6 +28,7 @@ int main(){
     //root.addChild(&ben);
     
     peter.addChild(&rose);
+    peter.addChild(&anne);
     peter.addPartner(&wade);
     peter.addPartner(&logan);
 
@@ -33,7 +38,7 @@ int main(){
     wade.addChild(&eliana);
     wade.addPartner(&logan);
 
-    wade.printPartners(wade); // Need to make it so if person1 adds person2 as a partner, the person2 auto sets person1 as their partner 
+    //wade.printPartners(wade); 
 
     may.addChild(&peter);
     may.addChild(&andrew);
@@ -41,10 +46,11 @@ int main(){
 
     ben.addChild(&peter);
     ben.addChild(&andrew);
-    ben.addPartner(&may);
 
-    eliana.addChild(&fabio); // if Rose has a child, it's fine since she is connected to the "main branch" aka Peter. 
-                             // if Peter's partner's child have a child, it won't be printed.
+    eliana.addChild(&fabio); 
+
+    fabio.addChild(&layla); 
+    layla.addPartner(&alicia);
     
 
     //peter.printPersonInfo(peter);
@@ -52,16 +58,17 @@ int main(){
     //rose.printPersonInfo(rose);
 
 
-    /*
-    cout << "May -o- Ben" << endl;
-    cout << "   Peter -o- Wade -o- Logan" << endl;
-    cout << "       Rose" << endl;
-    cout << "   Andrew" << endl;
-    */
+    //root.printTree(&root); 
 
+    // saves output to file
+    ofstream fileOut("output.dot");
+    cout.rdbuf(fileOut.rdbuf());
 
-
-    root.printTree(&root); 
+    cout << "digraph asde91 {" << endl << "ranksep=1; size = \"1,1\";" << endl;
+    cout << "node [shape=box; fontname = \"Helvetica Neue 75\";]" << endl;
+    cout << "splines = ortho;" << endl;
+    root.printGraph(&root);
+    cout << "}";
 
     //peter.update(&peter);
     //peter.printPersonInfo(peter); // Note: an updated person will keep the old name as perosn object

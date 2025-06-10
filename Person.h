@@ -3,8 +3,10 @@
 
 #include <unordered_set>
 #include <vector>
+#include <algorithm>
 #include <string>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 class Person{
@@ -13,13 +15,10 @@ class Person{
         vector<Person*> children; // store children in vector
         vector<Person*> partners; // store partners in vector
 
-        bool printed;
-
         string fName;
         string mName;
         string lName;
         string maidenName;
-        //string name;
         string fullName;
 
         int bMonth;
@@ -33,12 +32,12 @@ class Person{
     public:
         // Constructor
         Person(string fName, string mName, string lName, string maidenName, int bMonth, int bDay, int bYear, int dMonth, int dDay, int dYear): fName(fName), mName(mName), lName(lName), maidenName(maidenName), bMonth(bMonth), bDay(bDay), bYear(bYear), dDay(dDay), dMonth(dMonth), dYear(dYear){
-            printed == false;
+            
         }
 
         // Default Constructor
         Person(string fName): fName(fName){
-            printed == false;
+
         }
 
         ~Person(){
@@ -117,61 +116,6 @@ class Person{
             children.push_back(child); // add person to end of vector
             child->parents.push_back(this); // set person as child's parent
         }
-
-        /* // Remove, not necessary and just causing issues
-        void addParent(Person* parent){
-            parents.push_back(parent); // add person to end of vector
-            parent->parents.push_back(this); 
-        }
-        */
-        
-
-
-        // SEARCH FUNCTION
-        /*
-        void find(Person* person, Person name, int count, int size){ 
-            string x;
-            cout << "Enter the name of person you are searching for: " << endl;
-            cin >> x;
-
-            // traverse tree until...
-            //while(TNode* person.getName(name) != x){
-                //person->next = person; // use ID int? to iterate?
-            //}
-            // return the object of the found person
-            //return //found person;
-
-            // if person found...
-                // cout << "Person {Name} found."
-                // return person obj with corresponding name
-            // if person not found...
-                // cout << "Person not found.";
-
-            // handle error where person they are searching for doesn't exist. If the whole tree is traversed with no match, end.
-        }
-        */
-
-        
-        /*
-        void removeChild(Person& person){
-            //children<Person*>::iterator it = find(children.being(), children.end(), name);
-            //if(it != children.end()) children.erase(it);
-
-            //auto it = find(children.begin(), children.end(), name);
-            //if(it != children.end()) children.erase(it);
-
-            for(const auto child : children){ // for(int child = 0; child <= children.end(); ++child) ??? alternative
-                if(person.getName() != child->getName()){
-                    continue;
-                }else{
-                    children.erase(children.begin() + child);
-                }
-            }
-            
-            // searches from beginning to end of vector for child
-            //child.erase(find(child.begin(), child.end(), person));
-        }
-        */
         
 
 
@@ -240,16 +184,275 @@ class Person{
             cout << "Deathdate: " << person.getDeath() << endl;
 
             person.printChildren(person);
-            person.printParents(person);
+            //person.printParents(person);
             person.printPartners(person);
 
             cout << endl;
         }
 
 
+
+
+
+        // GRAPHVIZ FORMATTING CODE FUNCTIONS
+        void clusterStart(Person* person, int depth){
+            cout << "subgraph " << "cluster" << person->getFirstName() << depth << "{" << endl;
+            cout << "    {" << endl;
+            cout << "        rank = same;" << endl;
+            cout << "        node [shape = rectangle;]" << endl;
+            cout << "        edge [style = invis]" << endl << endl;
+
+            cout << "        \"" << person->getName() << "\"" << endl;
+        }
+        void clusterEnd(Person* person, int depth){
+            cout << "    }" << endl;
+            cout << "    color = deeppink1;" << endl;
+            cout << "    bgcolor = pink;" << endl;
+            cout << "}" << endl;
+            cout << person->getFirstName() << depth << " -> " << "childOf" << person->getFirstName() << "0Node" << " [arrowhead = none]" << endl;
+            cout << endl;
+        }
+
+        void createDiamondNode(Person* person, Person* partner, int depth){
+            // Create Diamond Node
+            cout << "{" << endl;
+            cout << "rank=same; rankdir=LR;" << endl;
+            cout << person->getFirstName() << depth << " [" << endl; // name partner node
+            cout << "label=\"\",shape=diamond,regular=0,height=0.25, width=0.25,style=\"filled\", color=\"deeppink1\"" << endl;
+            cout << "];" << endl;
+
+            // Connect Diamond Node to Partners
+            cout << "{" << endl;
+            cout << "rank=same; rankdir=LR;" << endl;
+            cout << "\"" << person->getName() << "\"" << " -> " << person->getFirstName() << depth << " -> " << "\"" << partner->getName() << "\"" << "[arrowhead = none, color=\"deeppink1\"];" << endl;
+            cout << "}" << endl;
+            cout << "}" << endl;
+        }
+
+        void createChildNode(Person* person, int i=0){
+            cout << "{" << endl;
+            for(Person* child : person->getChildren()){
+                cout << "rank=same; rankdir=LR;" << endl;
+                cout << "childOf" << person->getFirstName() << i << "Node:s [arrowhead = none, label=\"\", shape=circle, regular=0, height=0.05, width=0.05, style=\"filled\"];" << endl;
+                i++;
+            }
+            cout << "}" << endl;
+        }
+        // connects circle nodes horizontally
+        void connectChildNodes(Person* person, int i=0){
+            for(Person* child : person->getChildren()){
+                i++;
+            }
+
+            int i2 = 0;
+            cout << "childOf" << person->getFirstName() << i2 << "Node";
+            for(Person* child : person->getChildren()){
+                while(i2 < i-1){
+                    cout << " -> " << "childOf" << person->getFirstName() << i2+1 << "Node"; 
+                    i2++;
+                }
+            }
+            cout << " [arrowhead = none]" << endl;
+        }
+        // Create the lines to each child Node
+        void connectChildNodeToChild(Person* person, unordered_set<Person*> printedChild, int i=0){
+            for(Person* child : person->getChildren()){
+                // !printed don't work
+                if(!printedChild.count(child)){
+                    cout << "childOf" << person->getFirstName() << i << "Node:s" << " -> " << "\"" << child->getName() << "\":n" << " [arrowhead = none]" << endl;
+                    i++;
+                    printedChild.insert(child);
+                }
+            }
+        }
+
+        void createToolTip(Person* person, int depth){
+            cout << "\"" << person->getName() << "\"" << "[tooltip = \"";
+            person->printPersonInfo(*person);
+            cout << "\"]" << endl;
+        }
+
+
+
+
+
+        // Print Family tree showing relationships with -> and -o- to be integrated with Graphviz to create visual graph for tree
+        void printGraph(Person* person, int depth, unordered_set<Person*>& printed){
+            // Base Case - ends recursion once the end of the tree is reached or all people are printed
+            if (person == nullptr || printed.count(person)) return;
+
+            unordered_set<Person*> printedChild;
+            
+
+            //cout << person->getName();
+            printed.insert(person);
+
+            // create TOOL TIP
+            createToolTip(person, depth);
+
+            bool printedChildren = false;
+            // Print Partners
+            if(person->getPartners().empty() == false){ // check if they have partners...
+                // cluster start
+                //clusterStart(person, depth);
+
+                for(Person* partner : person->getPartners()){
+                    // Create partner's Tool Tip
+                    createToolTip(partner, depth);
+                }
+
+                //for(Person* child : person->getChildren()){
+                    //cout << "\"" << person->getName() << "\"" << " -> " << "\"" << child->getName() << "\" [arrowhead=none]";
+                    //cout << endl;
+                //}
+
+                for(Person* partner : person->getPartners()){ // for each partner...
+                    // cluster start
+                    clusterStart(person, depth);
+
+                    // Create Diamond Node
+                    //createDiamondNode(person, partner, depth);
+
+                    if(person->getChildren() == partner->getChildren() && person->getChildren().empty() == false){ // if partners share the same children...
+                        // Create Diamond Node
+                        createDiamondNode(person, partner, depth);
+
+                        // ----------- PRINTING FOR EACH PARTNER -- DUPLICATES -- ------------ //
+                        // end cluster
+                        clusterEnd(person, depth);
+
+                        // CREATE CHILD NODES
+                        createChildNode(person);
+
+                        // CONNECT NODES:   childOfMay0Node -> childOfMay1Node -> etc. -> etc.
+                        connectChildNodes(person);
+                        
+                        // connect LINES to CHILD NODES
+                        connectChildNodeToChild(person, printedChild);
+                        // ----------- PRINTING FOR EACH PARTNER -- DUPLICATES -- ------------ //
+
+                    }else if (person->getChildren() == partner->getChildren() && person->getChildren().empty() == true){
+                        // Create Diamond Node
+                        createDiamondNode(person, partner, depth);
+
+                        // end cluster - WITHOUT drawing any lines to nodes from diamond 
+                        cout << "    }" << endl;
+                        cout << "    color = deeppink1;" << endl;
+                        cout << "    bgcolor = pink;" << endl;
+                        cout << "}" << endl;
+                        cout << endl;
+                    }else{ // if partners DO NOT have same children
+                        int i=0;
+                        for(Person* partner : person->getPartners()){
+                            // Create Diamond Node for each partner
+                            createDiamondNode(person, partner, depth+i);
+                            i++;
+                        }
+
+                        // end cluster
+                        clusterEnd(person, depth);
+
+                        // CREATE--> sharedChildren vector for all partners
+                        // compare children of partner1 to partner2
+                        // if they share a child, add the child to a new sharedChildren vector
+                        // compare partner2 to partner 3
+                        // if they share a child, add the child to sharedChild vector
+                        // 
+
+                        for(Person* child : person->getChildren()){
+                            cout << "\"" << person->getName() << "\"" << " -> " << "\"" << child->getName() << "\" [arrowhead=none]";
+                            cout << endl;
+                        }
+
+                        // Children; child connected to parent node
+                        // used if there is only one child, OR if a child is NOT SHARED between parents (unique children)
+                        for(Person* child : partner->getChildren()){
+                            cout << "\"" << partner->getName() << "\"" << " -> " << "\"" << child->getName() << "\"";
+                            cout << endl;
+                        }
+
+
+                        /*
+                        // CREATE CHILD NODES
+                        createChildNode(person);
+
+
+                        // CONNECT CHILD NODES
+                        connectChildNodes(person);
+    
+
+                        // connect CHILD LINES to CHILD NODES
+                        connectChildNodeToChild(person, printedChild);
+                        
+
+                        // Print Children of Partners (connected to correct parent); child connected to diamond
+                        for(Person* pChild : partner->getChildren()){
+                            if(find(person->children.begin(), person->children.end(), pChild) == person->children.end()){
+                                cout << "\"" << partner->getName() << "\"" << " -> " << "\"" << pChild->getName() << "\"";
+                                cout << endl;
+                            }
+                        }*/
+                    }
+                }
+            }else{ // if a person does NOT have any partners
+                // create TOOL TIP
+                //createToolTip(person, depth);
+
+                // Children; child connected to parent node
+                // used if there is only one child, OR if a child is NOT SHARED between parents (unique children)
+                for(Person* child : person->getChildren()){
+                    cout << "\"" << person->getName() << "\"" << " -> " << "\"" << child->getName() << "\"";
+                    cout << endl;
+                }
+            }
+            cout << endl;
+
+
+
+
+
+            // Stores a person's children and their partner's children
+            unordered_set<Person*> allChildren;
+
+            // Get person's children
+            for (Person* child : person->getChildren()) {
+                allChildren.insert(child);
+            }
+
+            // Get partner's children
+            for (Person* partner : person->getPartners()) {
+                for (Person* child : partner->getChildren()) {
+                    allChildren.insert(child);
+                }
+            }
+
+            // Print all the children stored in allChildren unordered set - EX. we combined peter, logan and wade's children into one set and then printed them as regular children.
+            for (Person* child : allChildren) {
+                if (!printed.count(child)) {
+                    printGraph(child, depth+1, printed);
+                }
+            }
+
+            
+        
+            // Navigating
+            for(Person* child : person->getChildren()){
+                printGraph(child, depth+1, printed);
+            }
+            
+        }
+
+        void printGraph(Person* person, int depth = 0){
+            unordered_set<Person*> printed;
+            printGraph(person, depth, printed);
+        }
+
+
+
+
         // Pre-Order - start from root
         void printTree(Person* person, int depth, unordered_set<Person*>& printed){
-            // Base Case - ends recursion once the end of the tree is reached
+            // Base Case - ends recursion once the end of the tree is reached or all people are printed
             if (person == nullptr || printed.count(person)) return;
 
             // Formatting
@@ -265,30 +468,31 @@ class Person{
                 printed.insert(partner);
             }
             cout << endl;
-            
-            
-            
-            // Print children of Partners
-            for(Person* partner : person->getPartners()){
-                for(Person* pChild : partner->getChildren()){
-                    
-                    // if child has no partners AND no children, just print their name
-                    if(pChild->getPartners().empty() == true && pChild->getChildren().empty() == true && !printed.count(pChild)){
-                        for(int i = 0; i <= depth+1; i++){
-                            cout << " "; // print a space based on depth for visuals
-                        }
 
-                        cout << pChild->getName();    // THIS PRINTS PARTNER'S CHILDREN, BUT WILL HAVE CHILDREN DUPLICATES
-                        cout << endl;
-                        printed.insert(pChild);
-                    }
-                }
-                /*
-                for(Person* pChild : partner->getChildren()){
-                    pChild->printed == false;
-                }
-                */
+
+
+            // Stores a person's children and their partner's children
+            unordered_set<Person*> allChildren;
+
+            // Get person's children
+            for (Person* child : person->getChildren()) {
+                allChildren.insert(child);
             }
+
+            // Get partner's children
+            for (Person* partner : person->getPartners()) {
+                for (Person* child : partner->getChildren()) {
+                    allChildren.insert(child);
+                }
+            }
+
+            // Print all the children stored in allChildren unordered set - EX. we combined peter, logan and wade's children into one set and then printed them as regular children.
+            for (Person* child : allChildren) {
+                if (!printed.count(child)) {
+                    printTree(child, depth+1, printed);
+                }
+            }
+
             
         
             // Navigating
