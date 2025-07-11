@@ -13,7 +13,7 @@ class Person{
         vector<Person*> children; // store children in vector
         vector<Person*> partners; // store partners in vector
 
-        bool printed;
+        //bool printed;
 
         string fName;
         string mName;
@@ -33,12 +33,12 @@ class Person{
     public:
         // Constructor
         Person(string fName, string mName, string lName, string maidenName, int bMonth, int bDay, int bYear, int dMonth, int dDay, int dYear): fName(fName), mName(mName), lName(lName), maidenName(maidenName), bMonth(bMonth), bDay(bDay), bYear(bYear), dDay(dDay), dMonth(dMonth), dYear(dYear){
-            printed == false;
+            //printed == false;
         }
 
         // Default Constructor
         Person(string fName): fName(fName){
-            printed == false;
+            //printed == false;
         }
 
         ~Person(){
@@ -249,7 +249,7 @@ class Person{
 
         // Pre-Order - start from root
         void printTree(Person* person, int depth, unordered_set<Person*>& printed){
-            // Base Case - ends recursion once the end of the tree is reached
+            // Base Case - ends recursion once the end of the tree is reached or all people are printed
             if (person == nullptr || printed.count(person)) return;
 
             // Formatting
@@ -265,31 +265,84 @@ class Person{
                 printed.insert(partner);
             }
             cout << endl;
+
+
+
+            // Stores a person's children and their partner's children
+            unordered_set<Person*> allChildren;
+
+            // Get person's children
+            for (Person* child : person->getChildren()) {
+                allChildren.insert(child);
+            }
+
+            // Get partner's children
+            for (Person* partner : person->getPartners()) {
+                for (Person* child : partner->getChildren()) {
+                    allChildren.insert(child);
+                }
+            }
+
+            // Print all the children stored in allChildren unordered set - EX. we combined peter, logan and wade's children into one set and then printed them as regular children.
+            for (Person* child : allChildren) {
+                if (!printed.count(child)) {
+                    printTree(child, depth+1, printed);
+                }
+            }
+
             
             
-            
+            /*
             // Print children of Partners
             for(Person* partner : person->getPartners()){
                 for(Person* pChild : partner->getChildren()){
                     
                     // if child has no partners AND no children, just print their name
                     if(pChild->getPartners().empty() == true && pChild->getChildren().empty() == true && !printed.count(pChild)){
-                        for(int i = 0; i <= depth+1; i++){
+                        for(int i = 0; i <= depth+2; i++){
                             cout << " "; // print a space based on depth for visuals
                         }
 
-                        cout << pChild->getName();    // THIS PRINTS PARTNER'S CHILDREN, BUT WILL HAVE CHILDREN DUPLICATES
+                        cout << pChild->getName();
                         cout << endl;
                         printed.insert(pChild);
+
+                    }else if(pChild->getPartners().empty() == true && !printed.count(pChild)){
+                        
+                        for(int i = 0; i <= depth-1; i++){
+                            cout << " "; // print a space based on depth for visuals
+                        }
+
+                        //cout << pChild->getName();
+                        //cout << endl;
+                        
+                        printed.insert(pChild);
+
+                        for(Person* child : pChild->getChildren()){
+                            for(int i = 0; i <= depth-1; i++){
+                                cout << " "; // print a space based on depth for visuals
+                            }
+                            //cout << child->getName() << endl;
+                            //printed.insert(child);
+                            // how to make it continue printing children of children... recursively
+                            
+                            printTree(pChild, depth);
+                        }
+                    }else if(pChild->getPartners().empty() == false && !printed.count(pChild)){
+                        printed.insert(pChild);
+
+                        for(Person* child : pChild->getChildren()){
+                            for(int i = 0; i <= depth-1; i++){
+                                cout << " "; // print a space based on depth for visuals
+                            }
+                            
+                            printTree(pChild, depth);
+                        }
                     }
+                    
                 }
-                /*
-                for(Person* pChild : partner->getChildren()){
-                    pChild->printed == false;
-                }
-                */
             }
-            
+            */
         
             // Navigating
             for(Person* child : person->getChildren()){
