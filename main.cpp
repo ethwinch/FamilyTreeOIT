@@ -18,10 +18,6 @@ int main(){
     Person wade("Wade", "W", "Wilson", "Wilson", 6, 10, 2001, 0, 0, 0);
     Person logan("Logan", "X", "Dude", "Dude", 6, 10, 2001, 0, 0, 0);
 
-    //Person peter("Peter");
-    //Person may("May");
-    //Person rose("Rose");
-
     root.addChild(&may);
     //root.addChild(&ben);
     
@@ -35,6 +31,7 @@ int main(){
     wade.addChild(&eliana);
     wade.addPartner(&logan);
 
+    // DEBUG
     //wade.printPartners(wade); 
 
     may.addChild(&peter);
@@ -50,24 +47,18 @@ int main(){
     layla.addPartner(&alicia);
     
 
+    // DEBUG
     //peter.printPersonInfo(peter);
     //may.printPersonInfo(may);   
     //rose.printPersonInfo(rose);
 
 
-    /*
-    cout << "May -o- Ben" << endl;
-    cout << "   Peter -o- Wade -o- Logan" << endl;
-    cout << "       Rose" << endl;
-    cout << "   Andrew" << endl;
-    */
-
-
-
     root.printTree(&root); 
 
+    // DEBUG
     //peter.update(&peter);
     //peter.printPersonInfo(peter); // Note: an updated person will keep the old name as perosn object
 
    return 0;
+
 }
