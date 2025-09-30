@@ -1,2 +1,2 @@
-This is an old version of my family tree program written in C++.
-This version visualizes a family tree as outputted text and draws distinctions between relationships by using indentation.
+This is my Family Tree program written in C++ for my Out in Tech Mentorship program.
+The program uses the Graphviz library to create a tree.
