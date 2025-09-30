@@ -426,13 +426,6 @@ class Person{
                     createToolTip(partner, depth);
                 }
 
-                //for(Person* child : person->getChildren()){
-                    //cout << "\"" << person->getName() << "\"" << " -> " << "\"" << child->getName() << "\" [arrowhead=none]";
-                    //cout << endl;
-                //}
-
-               // int j = 0;
-
                 for(Person* partner : person->getPartners()){ // for each partner...
                     if(partner->printed1 == false){ // ensures no duplicate prints
                     // cluster start
@@ -508,55 +501,6 @@ class Person{
                             uniqueChild(person, "blue");
                             printedChildren=true;
                         }
-
-                        //uniqueChild(partner);
-                        
-
-                        //vector<Person*> sharedChildren;
-                        // Initialize vector with the person's children, whether shared or not
-                        /*
-                        for(Person* child : person->getChildren()){
-                            sharedChildren.push_back(child);
-                        }
-                        // Add to sharedChild vector
-                        for(Person* child : person->getChildren()){
-                            if(find(partner->getChildren().begin(), partner->getChildren().end(), child) != partner->getChildren().end()){
-                                sharedChildren.push_back(child);
-                            }
-                        }
-                        // print from sharedChild vector
-                        for(Person* child : person->getSharedChildren()){
-                            if(find(partner->getChildren().begin(), partner->getChildren().end(), child) == partner->getChildren().end()){
-                                // CREATE CHILD NODES
-                                createChildNode(child);
-                        
-                                uniqueChild(child);
-                            }
-                        }*/
-
-                        /*
-                        // CREATE CHILD NODES
-                        createChildNode(person);
-
-                        // CONNECT NODES:   childOfMay0Node -> childOfMay1Node -> etc. -> etc.
-                        connectChildNodes(person);
-                        
-                        // connect LINES to CHILD NODES
-                        connectChildNodeToChild(person, printedChild);
-                        */
-
-
-                        // CREATE--> sharedChildren vector for all partners
-                        // compare children of partner1 to partner2
-                        // if they share a child, add the child to a new sharedChildren vector
-                        // compare partner2 to partner 3
-                        // if they share a child, add the child to sharedChild vector
-                        // repeat untill all partners are checked
-
-                        // PRINTING
-                        // iterate through each partner's children like normal, BUT...
-                        // if a child is in the sharedChildren vector, print from diamond
-                        // else.... if the child is unique, print from person
                     }
                 }
                 }
@@ -676,3 +620,4 @@ class Person{
 };
 
 #endif
+
