@@ -118,63 +118,7 @@ class Person{
             child->parents.push_back(this); // set person as child's parent
         }
 
-        /* // Remove, not necessary and just causing issues
-        void addParent(Person* parent){
-            parents.push_back(parent); // add person to end of vector
-            parent->parents.push_back(this); 
-        }
-        */
-        
-
-
-        // SEARCH FUNCTION
-        /*
-        void find(Person* person, Person name, int count, int size){ 
-            string x;
-            cout << "Enter the name of person you are searching for: " << endl;
-            cin >> x;
-
-            // traverse tree until...
-            //while(TNode* person.getName(name) != x){
-                //person->next = person; // use ID int? to iterate?
-            //}
-            // return the object of the found person
-            //return //found person;
-
-            // if person found...
-                // cout << "Person {Name} found."
-                // return person obj with corresponding name
-            // if person not found...
-                // cout << "Person not found.";
-
-            // handle error where person they are searching for doesn't exist. If the whole tree is traversed with no match, end.
-        }
-        */
-
-        
-        /*
-        void removeChild(Person& person){
-            //children<Person*>::iterator it = find(children.being(), children.end(), name);
-            //if(it != children.end()) children.erase(it);
-
-            //auto it = find(children.begin(), children.end(), name);
-            //if(it != children.end()) children.erase(it);
-
-            for(const auto child : children){ // for(int child = 0; child <= children.end(); ++child) ??? alternative
-                if(person.getName() != child->getName()){
-                    continue;
-                }else{
-                    children.erase(children.begin() + child);
-                }
-            }
-            
-            // searches from beginning to end of vector for child
-            //child.erase(find(child.begin(), child.end(), person));
-        }
-        */
-        
-
-
+       
         // UPDATE FUNCTION
         // change info on preexisting person
         void update(Person* person){
@@ -291,59 +235,7 @@ class Person{
             }
 
             
-            
-            /*
-            // Print children of Partners
-            for(Person* partner : person->getPartners()){
-                for(Person* pChild : partner->getChildren()){
                     
-                    // if child has no partners AND no children, just print their name
-                    if(pChild->getPartners().empty() == true && pChild->getChildren().empty() == true && !printed.count(pChild)){
-                        for(int i = 0; i <= depth+2; i++){
-                            cout << " "; // print a space based on depth for visuals
-                        }
-
-                        cout << pChild->getName();
-                        cout << endl;
-                        printed.insert(pChild);
-
-                    }else if(pChild->getPartners().empty() == true && !printed.count(pChild)){
-                        
-                        for(int i = 0; i <= depth-1; i++){
-                            cout << " "; // print a space based on depth for visuals
-                        }
-
-                        //cout << pChild->getName();
-                        //cout << endl;
-                        
-                        printed.insert(pChild);
-
-                        for(Person* child : pChild->getChildren()){
-                            for(int i = 0; i <= depth-1; i++){
-                                cout << " "; // print a space based on depth for visuals
-                            }
-                            //cout << child->getName() << endl;
-                            //printed.insert(child);
-                            // how to make it continue printing children of children... recursively
-                            
-                            printTree(pChild, depth);
-                        }
-                    }else if(pChild->getPartners().empty() == false && !printed.count(pChild)){
-                        printed.insert(pChild);
-
-                        for(Person* child : pChild->getChildren()){
-                            for(int i = 0; i <= depth-1; i++){
-                                cout << " "; // print a space based on depth for visuals
-                            }
-                            
-                            printTree(pChild, depth);
-                        }
-                    }
-                    
-                }
-            }
-            */
-        
             // Navigating
             for(Person* child : person->getChildren()){
                 printTree(child, depth+1, printed);
@@ -359,3 +251,4 @@ class Person{
 };
 
 #endif
+
