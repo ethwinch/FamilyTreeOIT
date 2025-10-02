@@ -1,0 +1,321 @@
+digraph asde91 {
+ranksep=1; size = "1,1";
+node [shape=box; fontname = "Helvetica Neue 75";]
+splines = ortho;
+"FAMILY TREE "[tooltip = "FAMILY TREE 
+Maiden Name: 
+Birthdate: 6790080 / 0 / 29
+Deathdate: ALIVE
+Gender: X
+Sex: 
+Children of FAMILY TREE :
+May
+
+Partners of FAMILY TREE :
+
+Description: 
+
+"]
+"FAMILY TREE " -> "May Parker"[color = black]
+
+"May Parker"[tooltip = "May Parker
+Maiden Name: Loraine
+Birthdate: 5 / 15 / 1946
+Deathdate: 9 / 27 / 2033
+Gender: Woman
+Sex: Female
+Children of May Parker:
+Peter
+Andrew
+
+Partners of May Parker:
+Ben
+
+Description: 
+
+"]
+"Ben James Parker"[tooltip = "Ben James Parker
+Maiden Name: Parker
+Birthdate: 10 / 10 / 1934
+Deathdate: 4 / 5 / 2016
+Gender: Man
+Sex: Male
+Children of Ben James Parker:
+Peter
+Andrew
+
+Partners of Ben James Parker:
+May
+
+Description: 
+
+"]
+subgraph clusterMay1{
+    {
+        rank = same;
+        node [shape = rectangle;]
+        edge [style = invis]
+
+        "May Parker"
+{
+rank=same; rankdir=LR;
+May1 [label="",shape=diamond,regular=0,height=0.25, width=0.25,style="filled", color="deeppink1"
+];
+{
+rank=same; rankdir=LR;
+"May Parker" -> May1 -> "Ben James Parker"[arrowhead = none, color="deeppink1"];
+}
+}
+    }
+    color = deeppink1;
+    bgcolor = pink;
+}
+May1 -> childOfMay0Node [arrowhead = none]
+
+{
+rank=same; rankdir=LR;
+childOfMay0Node [arrowhead = none, label="", shape=circle, regular=0, height=0.05, width=0.05, style="filled"];
+rank=same; rankdir=LR;
+childOfMay1Node [arrowhead = none, label="", shape=circle, regular=0, height=0.05, width=0.05, style="filled"];
+}
+childOfMay0Node -> childOfMay1Node [arrowhead = none]
+childOfMay0Node -> "Peter Ben Parker" [arrowhead = none]
+childOfMay1Node -> "Andrew Parker" [arrowhead = none]
+
+"Andrew Parker"[tooltip = "Andrew Parker
+Maiden Name: Parker
+Birthdate: 10 / 10 / 2000
+Deathdate: ALIVE
+Gender: Man
+Sex: Male
+Children of Andrew Parker:
+Elija
+
+Partners of Andrew Parker:
+
+Description: 
+
+"]
+"Andrew Parker" -> "Elija P Parker"[color = black]
+
+"Elija P Parker"[tooltip = "Elija P Parker
+Maiden Name: Parker
+Birthdate: 4 / 2 / 2015
+Deathdate: ALIVE
+Gender: X
+Sex: Male
+Children of Elija P Parker:
+
+Partners of Elija P Parker:
+
+Description: 
+
+"]
+
+"Peter Ben Parker"[tooltip = "Peter Ben Parker
+Maiden Name: Parker
+Birthdate: 6 / 10 / 2001
+Deathdate: ALIVE
+Gender: Man
+Sex: Male
+Children of Peter Ben Parker:
+Rose
+Anne
+
+Partners of Peter Ben Parker:
+Wade
+Mary
+
+Description: Is secretly Spider-Man.
+
+"]
+"Wade W Wilson"[tooltip = "Wade W Wilson
+Maiden Name: Wilson
+Birthdate: 6 / 10 / 2001
+Deathdate: ALIVE
+Gender: Other
+Sex: Male
+Children of Wade W Wilson:
+Rose
+Eliana
+
+Partners of Wade W Wilson:
+Peter
+Mary
+
+Description: The merc with a mouth.
+
+"]
+"Mary Jane Parker"[tooltip = "Mary Jane Parker
+Maiden Name: Watson
+Birthdate: 6 / 10 / 2001
+Deathdate: ALIVE
+Gender: Woman
+Sex: Female
+Children of Mary Jane Parker:
+
+Partners of Mary Jane Parker:
+Peter
+Wade
+
+Description: The girl next door.
+
+"]
+subgraph clusterPeter2{
+    {
+        rank = same;
+        node [shape = rectangle;]
+        edge [style = invis]
+
+        "Peter Ben Parker"
+{
+rank=same; rankdir=LR;
+Peter2 [label="",shape=diamond,regular=0,height=0.25, width=0.25,style="filled", color="deeppink1"
+];
+{
+rank=same; rankdir=LR;
+"Peter Ben Parker" -> Peter2 -> "Wade W Wilson"[arrowhead = none, color="deeppink1"];
+}
+}
+    }
+    color = black;
+    bgcolor = pink;
+}
+
+"Wade W Wilson" -> "Rose Vera Garcia"[color = green]
+"Wade W Wilson" -> "Eliana P Garcia"[color = green]
+"Peter Ben Parker" -> "Rose Vera Garcia"[color = indigo]
+"Peter Ben Parker" -> "Anne Parker"[color = indigo]
+subgraph clusterPeter2{
+    {
+        rank = same;
+        node [shape = rectangle;]
+        edge [style = invis]
+
+        "Peter Ben Parker"
+{
+rank=same; rankdir=LR;
+Peter2 [label="",shape=diamond,regular=0,height=0.25, width=0.25,style="filled", color="deeppink1"
+];
+{
+rank=same; rankdir=LR;
+"Peter Ben Parker" -> Peter2 -> "Mary Jane Parker"[arrowhead = none, color="deeppink1"];
+}
+}
+    }
+    color = black;
+    bgcolor = pink;
+}
+
+
+"Eliana P Garcia"[tooltip = "Eliana P Garcia
+Maiden Name: Garcia
+Birthdate: 4 / 2 / 2015
+Deathdate: ALIVE
+Gender: Agender
+Sex: X
+Children of Eliana P Garcia:
+Fabio
+
+Partners of Eliana P Garcia:
+
+Description: 
+
+"]
+"Eliana P Garcia" -> "Fabio Emett Parker"[color = black]
+
+"Fabio Emett Parker"[tooltip = "Fabio Emett Parker
+Maiden Name: Parker
+Birthdate: 4 / 2 / 2015
+Deathdate: ALIVE
+Gender: Agender
+Sex: X
+Children of Fabio Emett Parker:
+Layla
+
+Partners of Fabio Emett Parker:
+
+Description: 
+
+"]
+"Fabio Emett Parker" -> "Layla Marie Parker"[color = black]
+
+"Layla Marie Parker"[tooltip = "Layla Marie Parker
+Maiden Name: Parker
+Birthdate: 4 / 2 / 2015
+Deathdate: ALIVE
+Gender: Woman
+Sex: Female
+Children of Layla Marie Parker:
+
+Partners of Layla Marie Parker:
+Alicia
+
+Description: 
+
+"]
+"Alicia Darkin Parker"[tooltip = "Alicia Darkin Parker
+Maiden Name: Gale
+Birthdate: 4 / 2 / 2015
+Deathdate: ALIVE
+Gender: Woman
+Sex: Female
+Children of Alicia Darkin Parker:
+
+Partners of Alicia Darkin Parker:
+Layla
+
+Description: 
+
+"]
+subgraph clusterLayla5{
+    {
+        rank = same;
+        node [shape = rectangle;]
+        edge [style = invis]
+
+        "Layla Marie Parker"
+{
+rank=same; rankdir=LR;
+Layla5 [label="",shape=diamond,regular=0,height=0.25, width=0.25,style="filled", color="deeppink1"
+];
+{
+rank=same; rankdir=LR;
+"Layla Marie Parker" -> Layla5 -> "Alicia Darkin Parker"[arrowhead = none, color="deeppink1"];
+}
+}
+    }
+    color = deeppink1;
+    bgcolor = pink;
+}
+
+
+"Anne Parker"[tooltip = "Anne Parker
+Maiden Name: Parker
+Birthdate: 6 / 10 / 2001
+Deathdate: ALIVE
+Gender: Woman
+Sex: Female
+Children of Anne Parker:
+
+Partners of Anne Parker:
+
+Description: 
+
+"]
+
+"Rose Vera Garcia"[tooltip = "Rose Vera Garcia
+Maiden Name: Garcia
+Birthdate: 4 / 2 / 2015
+Deathdate: ALIVE
+Gender: Non-Binary
+Sex: X
+Children of Rose Vera Garcia:
+
+Partners of Rose Vera Garcia:
+
+Description: 
+
+"]
+
+}

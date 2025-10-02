@@ -66,7 +66,7 @@ class Person{
         }
 
         // Constructor
-        Person(string fName, string mName, string lName, string maidenName, int bMonth, int bDay, int bYear, int dMonth, int dDay, int dYear, Gender gender = Gender::X, Sex sex = Sex::XX, string desc = ""): fName(fName), mName(mName), lName(lName), maidenName(maidenName), bMonth(bMonth), bDay(bDay), bYear(bYear), dDay(dDay), dMonth(dMonth), dYear(dYear), g(gender), s(sex), desc(desc){
+        Person(string fName, string mName, string lName, string maidenName, int bMonth, int bDay, int bYear, int dMonth, int dDay, int dYear, Gender gender, Sex sex, string desc = ""): fName(fName), mName(mName), lName(lName), maidenName(maidenName), bMonth(bMonth), bDay(bDay), bYear(bYear), dDay(dDay), dMonth(dMonth), dYear(dYear), g(gender), s(sex), desc(desc){
             printed1 = false;
         }
 
@@ -473,17 +473,16 @@ class Person{
                         }
 
                         // end cluster
-                        // cannot use function because we don't want to print connection to child node
+                        // cannot use END CLUSTER function because we don't want to print connection to child node
                         cout << "    }" << endl;
-                        cout << "    color = blue;" << endl;
+                        cout << "    color = black;" << endl;
                         cout << "    bgcolor = pink;" << endl;
                         cout << "}" << endl;
                         cout << endl;
 
                         uniqueChild(partner, "green");
-                        // still prints twice **************** remove from if?
                         if(!printedChildren){
-                            uniqueChild(person, "blue");
+                            uniqueChild(person, "indigo");
                             printedChildren=true;
                         }
                     }
