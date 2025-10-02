@@ -146,13 +146,6 @@ class Person{
             return death;
         }
 
-
-        /*bool printed(Person* person){
-            return printed;
-        }*/
-
-
-
         void addPartner(Person* partner){
             partners.push_back(partner); // add partner to end of the vector
             partner->partners.push_back(this);
@@ -163,11 +156,6 @@ class Person{
             child->parents.push_back(this); // set person as child's parent
         }
         
-
-        void addPerson(){
-            // add Person info
-        }
-
 
         // UPDATE FUNCTION
         // change info on preexisting person
@@ -208,7 +196,6 @@ class Person{
             cin >> gender;
             //cin >> Person::g;
 
-            // TO UPPER - converts to uppercase one letter at a time
             for(auto& x : gender){
                 x = toupper(x);
             }
@@ -233,11 +220,9 @@ class Person{
             cin >> sex;
             //cin >> Person::s;
 
-            // TO UPPER - converts to uppercase one letter at a time
             for(auto& x : sex){
                 x = toupper(x);
             }
-            // XX, MALE, FEMALE, INTERSEX
             if(sex == "X"){
                 s = XX;
             }else if(sex == "MALE"){
@@ -620,4 +605,5 @@ class Person{
 };
 
 #endif
+
 
