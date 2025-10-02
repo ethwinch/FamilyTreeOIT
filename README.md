@@ -43,3 +43,8 @@ In Peter's tooltip we can see the following information:
 <p>Current sex options include XX, MALE, FEMALE, INTERSEX.</p>
 
 These options will be expanded in the future.
+
+<h1>Main File</h1>
+<p>There is currently no GUI for this program (but I am working on it!), but if you still want to use this program to create a family tree, this is what you need to know.</p>
+<h2>The Structure of the Main File.</h2>
+<p>When creating a new family tree, you'll want to add the people and relationships to the file titled TEMPLATE_main.cpp</p>
