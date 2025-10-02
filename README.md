@@ -18,6 +18,7 @@ If at any point a person's relationships are unclear based on the graph, you can
 
 In Peter's tooltip we can see the following information:
 <br>
+<b>
 <p>Peter Ben Parker</p>
 <p>Maiden Name: Parker</p>
 <p>Birthdate: 6 / 10 / 2001</p>
@@ -33,6 +34,7 @@ In Peter's tooltip we can see the following information:
 <p>Mary</p>
 
 <p>Description: Is secretly Spider-Man.</p>
+</b>
 <br>
 
 <p>Current gender options include X, MAN, WOMAN, NB, AGENDER, OTHER.</p>
