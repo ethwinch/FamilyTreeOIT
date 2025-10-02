@@ -9,12 +9,12 @@ Below is an example of a family tree created using this program, which depicts s
 As you can see, Peter, Wade and Mary Jane are all in a polyamorous relationship. This is depicted by them being grouped together in a light pink box. They don't all share the same children, however. Peter's children consist of Anne Parker and Rose Vera Garcia. Mary Jane does not have any children. Wade's children are Eliana P. Garcia and Rose Vera Garcia. Peter and Wade are both parents to Rose Vera Garcia, so they both get an arrow pointing to Rose.
 
 Now, let's say Peter and Wade still shared Rose Vera Garcia as their child, but Peter and Wade were not together whether that be because they were never married or got divorced. In that case, the graph would look like this:
-<img width="596" height="607" alt="FTProgramGraph_ChildofDivorceEX" src="https://github.com/user-attachments/assets/435b90dc-c587-430d-91ab-5f3355179087" />
+<img width="596" height="607" alt="Same family tree as the previous one, however Wade W Wilson is no longer in a relationship with Peter Ben Parker and Mary Jane Parker." src="https://github.com/user-attachments/assets/435b90dc-c587-430d-91ab-5f3355179087" />
 
 You can see Peter and Wade still both have an arrow pointing to Rose to indicate they are their child, but Wade is no longer included in that pink box that indicates a relationship. 
 
 If at any point a person's relationships are unclear based on the graph, you can hover over the person's name and a tooltip displaying their information will appear. This information includes full name, birth date, death date (or "ALIVE" if they are still living), gender, sex, an optional description about them, and their partners and children.
-<img width="625" height="632" alt="FTProgramGraphExample2_SpidermanDETAILS" src="https://github.com/user-attachments/assets/754958a0-aeea-4630-b090-da56560d8175" />
+<img width="625" height="632" alt="Same family tree as the first one, but with a tooltip coming from Peter Ben Parker's name displaying his informatioin." src="https://github.com/user-attachments/assets/754958a0-aeea-4630-b090-da56560d8175" />
 
 In Peter's tooltip we can see the following information:
   Peter Ben Parker
