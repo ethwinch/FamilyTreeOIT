@@ -17,23 +17,25 @@ If at any point a person's relationships are unclear based on the graph, you can
 <img width="625" height="632" alt="Same family tree as the first one, but with a tooltip coming from Peter Ben Parker's name displaying his informatioin." src="https://github.com/user-attachments/assets/754958a0-aeea-4630-b090-da56560d8175" />
 
 In Peter's tooltip we can see the following information:
-<t>Peter Ben Parker</t>
-  Maiden Name: Parker
-  Birthdate: 6 / 10 / 2001
-  Deathdate: ALIVE
-  Gender: Man
-  Sex: Male
-  Children of Peter Ben Parker:
-  Rose
-  Anne
+<br>
+<p>Peter Ben Parker</p>
+<p>Maiden Name: Parker</p>
+<p>Birthdate: 6 / 10 / 2001</p>
+<p>Deathdate: ALIVE</p>
+<p>Gender: Man</p>
+<p>Sex: Male</p>
+<p>Children of Peter Ben Parker:</p>
+<p>Rose</p>
+<p>Anne</p>
 
-  Partners of Peter Ben Parker:
-  Wade
-  Mary
+<p>Partners of Peter Ben Parker:</p>
+<p>Wade</p>
+<p>Mary</p>
 
-  Description: Is secretly Spider-Man.
+<p>Description: Is secretly Spider-Man.</p>
+<br>
 
-Current gender options include X, MAN, WOMAN, NB, AGENDER, OTHER.
-Current sex options include XX, MALE, FEMALE, INTERSEX.
+<p>Current gender options include X, MAN, WOMAN, NB, AGENDER, OTHER.</p>
+<p>Current sex options include XX, MALE, FEMALE, INTERSEX.</p>
 
 These options will be expanded in the future.
