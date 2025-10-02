@@ -17,7 +17,7 @@ If at any point a person's relationships are unclear based on the graph, you can
 <img width="625" height="632" alt="Same family tree as the first one, but with a tooltip coming from Peter Ben Parker's name displaying his informatioin." src="https://github.com/user-attachments/assets/754958a0-aeea-4630-b090-da56560d8175" />
 
 In Peter's tooltip we can see the following information:
-  Peter Ben Parker
+<t>Peter Ben Parker</t>
   Maiden Name: Parker
   Birthdate: 6 / 10 / 2001
   Deathdate: ALIVE
