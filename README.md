@@ -12,3 +12,28 @@ Now, let's say Peter and Wade still shared Rose Vera Garcia as their child, but 
 <img width="596" height="607" alt="FTProgramGraph_ChildofDivorceEX" src="https://github.com/user-attachments/assets/435b90dc-c587-430d-91ab-5f3355179087" />
 
 You can see Peter and Wade still both have an arrow pointing to Rose to indicate they are their child, but Wade is no longer included in that pink box that indicates a relationship. 
+
+If at any point a person's relationships are unclear based on the graph, you can hover over the person's name and a tooltip displaying their information will appear. This information includes full name, birth date, death date (or "ALIVE" if they are still living), gender, sex, an optional description about them, and their partners and children.
+<img width="625" height="632" alt="FTProgramGraphExample2_SpidermanDETAILS" src="https://github.com/user-attachments/assets/754958a0-aeea-4630-b090-da56560d8175" />
+
+In Peter's tooltip we can see the following information:
+  Peter Ben Parker
+  Maiden Name: Parker
+  Birthdate: 6 / 10 / 2001
+  Deathdate: ALIVE
+  Gender: Man
+  Sex: Male
+  Children of Peter Ben Parker:
+  Rose
+  Anne
+
+  Partners of Peter Ben Parker:
+  Wade
+  Mary
+
+  Description: Is secretly Spider-Man.
+
+Current gender options include X, MAN, WOMAN, NB, AGENDER, OTHER.
+Current sex options include XX, MALE, FEMALE, INTERSEX.
+
+These options will be expanded in the future.
