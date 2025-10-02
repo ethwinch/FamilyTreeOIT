@@ -1,7 +1,7 @@
 As part of my Spring2025 Mentorship with Out in Tech, I created a Family Tree program in C++.
 This program goes beyond what other programs allow you to do in terms of depicting a diverse range of relationships such as children of divorce, children of different parents, and polyamory.
 
-The tree is visualized using the GraphViz library. 
+The tree is visualized using the GraphViz library. This is done by creating a dot file, which can be converted to an svg for easy use.
 
 Below is an example of a family tree created using this program, which depicts some familiar characters and some made up ones.
 <img width="525" height="535" alt="A family tree graph starting at FAMILY TREE and branching to May Parker who is in a relationship with Ben James Parker. Their children are Peter Ben Parker and Andrew Parker. Andrew Parker has one child named Elija P Parker. Peter Ben Parker is in a relationship with Mary Jane Parker and Wade W Wilson. Peter has children Anne Parker and Rose Vera Garcia. Mary Jane has no children. Wade has the children Eliana P Garcia and Rose Vera Garcia. Eliana P Garcia has a child Fabio Emett Parker. Fabio has child Layla Marie Parker, who is in a relationship with Alicia Darkin Parker." src="https://github.com/user-attachments/assets/d4aaf78d-5b5d-487a-931a-f5996b9e8dc9" />
