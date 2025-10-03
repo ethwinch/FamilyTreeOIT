@@ -48,3 +48,8 @@ These options will be expanded in the future.
 <p>There is currently no GUI for this program (but I am working on it!), but if you still want to use this program to create a family tree, this is what you need to know.</p>
 <h2>The Structure of the Main File.</h2>
 <p>When creating a new family tree, you'll want to add the people and relationships to the file titled TEMPLATE_main.cpp</p>
+<p>There's instructions within the file that explain how to do this.</p>
+<h2>Running The Program</h2>
+<p>Open all the files you need (TEMPLATE_main.cpp and Person.h) in an IDE such as VisualStudioCode.</p>
+<p>Add the extension for the Graphviz library to your IDE.</p>
+<p>Run the code from TEMPLATE_main.cpp. This should generate an output.dot file. View the output.dot file and a black and white button with the words "DOT" should appear at the top right of the screen. Click this to see the visualization of the tree using Graphviz.</p>
