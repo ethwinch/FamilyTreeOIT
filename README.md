@@ -1,3 +1,4 @@
+<h1>Family Tree Program</h1>
 As part of my Spring2025 Mentorship with Out in Tech, I created a Family Tree program in C++.
 This program goes beyond what other programs allow you to do in terms of depicting a diverse range of relationships such as children of divorce, children of different parents, and polyamory.
 
@@ -44,7 +45,7 @@ In Peter's tooltip we can see the following information:
 
 These options will be expanded in the future.
 
-<h1>Main File</h1>
+<h1>Running the Program in Visual Studio Code</h1>
 <p>There is currently no GUI for this program (but I am working on it!), but if you still want to use this program to create a family tree, this is what you need to know.</p>
 <h2>The Structure of the Main File.</h2>
 <p>When creating a new family tree, you'll want to add the people and relationships to the file titled TEMPLATE_main.cpp</p>
