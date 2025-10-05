@@ -2,7 +2,7 @@
 As part of my Spring2025 Mentorship with Out in Tech, I created a Family Tree program in C++.
 This program goes beyond what other programs allow you to do in terms of depicting a diverse range of relationships such as children of divorce, children of different parents, and polyamory.
 
-The tree is visualized using the GraphViz library. This is done by creating a dot file, which can be converted to an svg for easy use.
+The tree is visualized using the GraphViz library. The tree is generated as a dot file, which can be converted to an svg for easy use.
 
 <h1>Tree Examples</h1>
 
