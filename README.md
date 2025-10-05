@@ -46,10 +46,11 @@ This program goes beyond what other programs allow you to do in terms of depicti
 <p>These options will be expanded in the future.</p>
 
 <h1>Running the Program in Visual Studio Code</h1>
-<p>There is currently no GUI for this program (but I am working on it!), but if you still want to use this program to create a family tree, this is what you need to know.</p>
-<h2>The Structure of the Main File.</h2>
-<p>When creating a new family tree, you'll want to add the people and relationships to the file titled TEMPLATE_main.cpp</p>
-<p>There's instructions within the file that explain how to do this.</p>
+<p>There is currently no GUI for this program (but I am working on it!), but if you still want to use this program in the meantime, this is how!</p>
+<h2>Editing the Main File</h2>
+<p>When creating a new family tree, you'll want to add the people and relationships to the file titled TEMPLATE_main.cpp. <i>This is the only file you have to edit!</i></p>
+<p>There's instructions within the file that explain how to add a new person to the tree and how to add their partners and children as relationships.</p>
+<p>If you find the written instructions confusing, it may help to watch the video tutorial below.</p>
 <h2>Running The Program</h2>
 <p>Open all the files you need (TEMPLATE_main.cpp and Person.h) in an IDE such as VisualStudioCode.</p>
 <p>Add the extension for the Graphviz library to your IDE.</p>
