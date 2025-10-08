@@ -4,6 +4,8 @@ This program goes beyond what other programs allow you to do in terms of depicti
 
 <p>The tree is visualized using the GraphViz library. The tree is generated as a dot file, which can be converted to an svg for easy use.</p>
 
+<p>/!\<i>This project is still a work in progress, so there are some bugs and incomplete/missing features.</i></p>
+
 <h1>Tree Example</h1>
 <p>Below is an example of a family tree created using this program, which depicts some familiar characters and some made up ones. Let's walk through its basic functions.</p>
 
