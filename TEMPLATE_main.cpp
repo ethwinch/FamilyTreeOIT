@@ -67,7 +67,7 @@ int main(){
 
 
     // saves output to file
-    ofstream fileOut("output.dot");
+    ofstream fileOut("output.dot"); // OPTIONAL: You can change path to generate the output.dot file in a specified directory
     cout.rdbuf(fileOut.rdbuf());
 
 
@@ -79,4 +79,5 @@ int main(){
     cout << "}";
 
    return 0;
+
 }
