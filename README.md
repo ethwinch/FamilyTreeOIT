@@ -48,12 +48,13 @@ This program goes beyond what other programs allow you to do in terms of depicti
 <p>These options will be expanded in the future.</p>
 
 <h1>Running the Program in Visual Studio Code</h1>
-<p>There is currently no GUI for this program (but I am working on it!), but if you still want to use this program in the meantime, this is how!</p>
+<p>There is currently no GUI for this program (but I am working on it!), but if you still want to use this program in the meantime, this is how.</p>
 <h2>Editing the Main File</h2>
-<p>When creating a new family tree, you'll want to add the people and relationships to the file titled TEMPLATE_main.cpp. <i>This is the only file you have to edit!</i></p>
-<p>There's instructions within the file that explain how to add a new person to the tree and how to add their partners and children as relationships.</p>
-<p>If you find the written instructions confusing, it may help to watch the video tutorial below.</p>
+<p>When creating a new family tree, you'll want to add the people and relationships to the file titled TEMPLATE_main.cpp. <i>This is the only file you have to edit.</i></p>
+<p>There's instructions within the file which explains how to add a new person to the tree and how to add their partners and children as relationships.</p>
 <h2>Running The Program</h2>
-<p>Open all the files you need (TEMPLATE_main.cpp and Person.h) in an IDE such as VisualStudioCode.</p>
-<p>Add the extension for the Graphviz library to your IDE.</p>
-<p>Run the code from TEMPLATE_main.cpp. This should generate an output.dot file. View the output.dot file and a black and white button with the words "DOT" should appear at the top right of the screen. Click this to see the visualization of the tree using Graphviz.</p>
+<p>Open all the files you need (TEMPLATE_main.cpp and Person.h) in an IDE such as MS Visual Studio Code.</p>
+<p>Install the following two extensions:</p>
+<ul>Graphviz (dot) language support for Visual Studio Code</ul>
+<ul>Graphviz Interactive Preview</ul>
+<p>Run the code from TEMPLATE_main.cpp. This should generate an output.dot file (you may have to manually search for it and open it in your IDE the first time you generate it). View the output.dot file and a black and white button with the word "DOT" should appear at the top right corner of the IDE. Click this to see the visualization of the tree using Graphviz.</p>
